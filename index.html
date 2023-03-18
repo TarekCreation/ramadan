@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ramadan Kareem</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="favicon.ico">
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <style>
+            
+            #countdown {
+                margin-top: 1%;
+                margin-bottom: 1%;
+            }
+            #countdown div {
+                background-color: #1814145d;
+                color: #ffffff;
+                width: 200px;
+                height: 210px;
+                border-radius: 5px;
+                font-size: 100px;
+                font-weight: 700;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            #countdown div span {
+                display: block;
+                margin-top: -2px;
+                font-size: 30px;
+                font-weight: 800;
+            }
+            @media only screen and (max-width: 767px) {
+                #countdown div {
+                    width: 100px;
+                    height: 200px;
+                    font-size: 50px;
+                    margin-top: 20px;
+                }
+                #countdown div span {
+                    font-size: 50px;
+                }
+            }
+        </style>
+        <script>
+            var ramadanBegan = false;
+            var dayofRamadan = 0;
+            var ramadanisover = false;
+        </script>
+        
+    </head>
+
+    <body background="tile.png">
+    <style>
+        
+    </style>
+    <div class="banner">
+        <div>
+            <br>
+            <br>
+            <br>
+            
+        </div> 
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <center><p style="color: rgb(242, 178, 255); font-size: 50px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> Welcome to our Website </p></center><br>
+    <center><p style="color: rgb(242, 178, 255); font-size: 30px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">This Website was made to celebrate the blessed month of Ramadan and to help you know praying times and qoraan parts of the day so you won't miss this amazing opportunity to worship god</p><br>
+    
+
+    </center>
+    <p style="color: rgb(242, 178, 255); font-size: 30px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Date: <span id="date"></span></p>
+
+    <script>
+        
+        var dt = new Date();
+        var day = dt.getDate();
+        var month = dt.getMonth() + 1;
+        var year = dt.getFullYear();
+        if (day < 10) day = '0' + day;
+        if (month < 10) month = '0' + month;
+        document.getElementById("date").innerHTML = day + "/" + month + "/" + year;
+        
+    </script>
+    <p style="color: rgb(242, 178, 255); font-size: 30px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Time: <span id="time"></span></p>
+
+    <script>
+        setInterval(() => {
+            var dt = new Date();
+            document.getElementById("time").innerHTML = dt.toLocaleTimeString();
+            
+        }, 0)
+    </script>
+
+    <center>
+    <!-- Display the countdown timer in an element -->
+    <p id="demo" style="color: rgb(242, 178, 255); font-size: 190px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"></p>
+    
+    <p id="text" style="color: rgb(242, 178, 255); font-size: 100px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> there are </p>
+    
+    
+    <div id="countdown" class="flex-wrap d-flex justify-content-center">
+        <div id="days" class="align-items-center flex-column d-flex justify-content-center"></div>
+        <div id="hours" class="align-items-center flex-column d-flex justify-content-center"></div>
+        <div id="minutes" class="align-items-center flex-column d-flex justify-content-center"></div>
+        <div id="seconds" class="align-items-center flex-column d-flex justify-content-center"></div>
+        </div>
+
+    
+    <p id="text2" style="color: rgb(242, 178, 255); font-size: 100px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> left until Ramadan Begins </p>
+    <div id="div1" class="textedit">
+        <p id="p1"style="color: rgb(242, 178, 255); font-size: 100px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"></p>
+        <p id="p2"></p>
+      </div>
+    <script>
+        function countDown() {
+            
+            if (ramadanBegan == false) {
+                ramadanBegan = false;
+                if (ramadanisover == false) {
+                    
+                
+                var last = new Date("Mar 23, 2023 4:39:00");
+                var last = (Date.parse(last)) / 1000;
+                var current = new Date();
+                var current = (Date.parse(current) / 1000);
+                var leftTime = last - current;
+                var days = Math.floor(leftTime / 86400); 
+                var hours = Math.floor((leftTime - (days * 86400)) / 3600);
+                var minutes = Math.floor((leftTime - (days * 86400) - (hours * 3600 )) / 60);
+                var seconds = Math.floor((leftTime - (days * 86400) - (hours * 3600) - (minutes * 60)));
+                if (days == -1) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 1;
+                            
+                }else if(days == -2) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 2;
+                    
+                            
+                }else if(days == -3) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 3;
+                    
+                            
+                }else if(days == -4) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 4;
+                    
+                            
+                }else if(days == -5) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 5;
+                    
+                            
+                }else if(days == -6) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 6;
+                    
+                            
+                }else if(days == -7) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 7;
+                    
+                            
+                }else if(days == -8) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 8;
+                    
+                            
+                }else if(days == -9) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 9;
+                    
+                            
+                }else if(days == -10) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 10;
+                    
+                            
+                }else if(days == -11) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 11;
+                    
+                            
+                }else if(days == -12) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 12;
+                    
+                            
+                }else if(days == -13) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 13;
+                    
+                            
+                }else if(days == -14) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 14;
+                    
+                            
+                }else if(days == -15) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 15;
+                    
+                            
+                }else if(days == -16) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 16;
+                    
+                            
+                }else if(days == -17) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 17;
+                    
+                            
+                }else if(days == -18) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 18;
+                    
+                            
+                }else if(days == -19) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 19;
+                    
+                            
+                }else if(days == -20) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 20;
+                    
+                            
+                }else if(days == -21) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 21;
+                    
+                            
+                }else if(days == -22) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 22;
+                    
+                            
+                }else if(days == -23) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 23;
+                    
+                            
+                }else if(days == -24) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 24;
+                    
+                            
+                }else if(days == -25) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 25;
+                    
+                            
+                }else if(days == -26) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 26;
+                    
+                            
+                }else if(days == -27) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 27;
+                    
+                            
+                }else if(days == -28) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 28;
+                    
+                            
+                }else if(days == -29) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 29;
+                    
+                            
+                }else if(days == -30) 
+                {
+                    
+                    ramadanBegan = true;
+                    dayofRamadan = 30;
+                    
+                            
+                }else if(days < -30) 
+                {
+                    ramadanisover = true
+                    
+                    dayofRamadan = 0;
+                    
+                            
+                }
+                if (hours < "10") { hours = "0" + hours; }
+                if (minutes < "10") { minutes = "0" + minutes; }
+                if (seconds < "10") { seconds = "0" + seconds; }
+                $("#days").html(days + "<span>Days</span>");
+                $("#hours").html(hours + "<span>Hours</span>");
+                $("#minutes").html(minutes + "<span>Minutes</span>");
+                $("#seconds").html(seconds + "<span>Seconds</span>");
+                
+                document.getElementById("theButton").style.visibility = "hidden";
+                }else{
+                    const element = document.getElementById("countdown");
+                element.remove();
+                const element2 = document.getElementById("text");
+                element2.remove();
+                const element3 = document.getElementById("text2");
+                element3.remove();
+                const para = document.createElement("p");
+                const node = document.createTextNode("Ramadan is over.... Happy Eid al Fitr !!!");
+                
+                para.appendChild(node);
+                
+                
+                
+                const theelement = document.getElementById("div1");
+                const child = document.getElementById("p1");
+                theelement.insertBefore(para, child);
+                }
+            
+            }else
+            {
+                const element = document.getElementById("countdown");
+                element.remove();
+                const element2 = document.getElementById("text");
+                element2.remove();
+                const element3 = document.getElementById("text2");
+                element3.remove();
+                
+                const para = document.createElement("p");
+                const node = document.createTextNode("Today is " + dayofRamadan.toString() + " Ramadan ");
+                
+                para.appendChild(node);
+                
+                
+                
+                const theelement = document.getElementById("div1");
+                const child = document.getElementById("p1");
+                theelement.insertBefore(para, child);
+                document.getElementById("theButton").style.visibility = "visible";
+
+                if (dayofRamadan > 0) {
+                if (dayofRamadan == 1) {
+                    $("#fagr").html("04:39 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("06:04 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:10 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:15 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:45 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 2) {
+                    $("#fagr").html("04:38 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("06:03 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:09 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:16 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:46 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 3) {
+                    $("#fagr").html("04:37 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("06:02 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:09 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:16 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:46 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 4) {
+                    $("#fagr").html("04:36 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("06:00 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:09 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:17 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:47 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 5) {
+                    $("#fagr").html("04:34 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:59 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:08 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:17 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:47 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 6) {
+                    $("#fagr").html("04:33 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:58 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:08 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:18 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:48 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 7) {
+                    $("#fagr").html("04:32 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:57 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:08 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:19 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:49 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 8) {
+                    $("#fagr").html("04:29 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:54 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:07 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:20 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:50 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 9) {
+                    $("#fagr").html("04:28 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:53 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:07 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:20 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:50 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 10) {
+                    $("#fagr").html("04:26 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:52 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:07 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:21 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:51 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 11) {
+                    $("#fagr").html("04:25 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:51 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:06 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:22 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:52 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 12) {
+                    $("#fagr").html("04:24 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:50 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:06 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:22 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:52 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 13) {
+                    $("#fagr").html("04:22 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:48 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:06 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:23 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:53 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 14) {
+                    $("#fagr").html("04:21 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:47 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:05 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:23 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:53 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 15) {
+                    $("#fagr").html("04:19 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:46 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:05 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:24 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:54 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 16) {
+                    $("#fagr").html("04:18 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:45 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:05 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:25 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:55 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 17) {
+                    $("#fagr").html("04:17 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:44 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:05 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:25 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:55 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 18) {
+                    $("#fagr").html("04:15 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:43 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:04 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:26 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:56 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 19) {
+                    $("#fagr").html("04:14 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:41 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:04 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:27 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:57 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 20) {
+                    $("#fagr").html("04:13 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:40 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:04 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:27 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:57 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 21) {
+                    $("#fagr").html("04:11 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:39 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:03 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:28 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:58 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 22) {
+                    $("#fagr").html("04:10 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:38 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:03 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:28 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:58 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 23) {
+                    $("#fagr").html("04:09 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:37 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:03 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:29 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("07:59 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 24) {
+                    $("#fagr").html("04:07 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:36 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:03 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:30 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("08:00 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 25) {
+                    $("#fagr").html("04:06 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:35 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:02 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:30 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("08:00 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 26) {
+                    $("#fagr").html("04:05 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:34 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:02 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:38 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:31 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("08:01 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 27) {
+                    $("#fagr").html("04:03 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:33 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:02 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:37 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:31 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("08:01 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 28) {
+                    $("#fagr").html("04:02 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:31 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:02 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:37 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:32 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("08:02 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 29) {
+                    $("#fagr").html("04:01 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:30 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:02 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:37 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:33 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("08:03 PM" + "<span> :العشاء</span>");
+                }else if (dayofRamadan == 30) {
+                    $("#fagr").html("04:00 AM" + "<span> :الفجر</span>");
+                    $("#shorook").html("05:29 AM" + "<span> :الشروق</span>");
+                    $("#dohr").html("12:01 PM" + "<span> :الظهر</span>");
+                    $("#asr").html("03:37 PM	" + "<span> :العصر</span>");
+                    $("#magrib").html("06:33 PM" + "<span> :المغرب</span>");
+                    $("#eisha").html("08:03 PM" + "<span> :العشاء</span>");
+                }
+                
+            }
+                
+            }
+            
+        }
+        setInterval(function() { countDown(); }, 0);
+        
+    </script>
+    <div>
+        <div><button id="theButton" style="--clr:rgb(242, 178, 255)" onclick="ReadPart();"><span>اقرأ جزء اليوم</span><i></i></button></div>
+    </div>
+    
+    <script>
+        function ReadPart()
+        {
+            if (dayofRamadan > 0) {
+                if (dayofRamadan == 1) {
+                    open("https://equran.me/read-1.html#juz1");
+                }else if (dayofRamadan == 2) {
+                    open("https://equran.me/read-2.html#juz2");
+                }else if (dayofRamadan == 3) {
+                    open("https://equran.me/read-2.html#juz3");
+                }else if (dayofRamadan == 4) {
+                    open("https://equran.me/read-3.html#juz4");
+                }else if (dayofRamadan == 5) {
+                    open("https://equran.me/read-4.html#juz5");
+                }else if (dayofRamadan == 6) {
+                    open("https://equran.me/read-4.html#juz6");
+                }else if (dayofRamadan == 7) {
+                    open("https://equran.me/read-5.html#juz7");
+                }else if (dayofRamadan == 8) {
+                    open("https://equran.me/read-6.html#juz8");
+                }else if (dayofRamadan == 9) {
+                    open("https://equran.me/read-7.html#juz9");
+                }else if (dayofRamadan == 10) {
+                    open("https://equran.me/read-8.html#juz10");
+                }else if (dayofRamadan == 11) {
+                    open("https://equran.me/read-9.html#juz11");
+                }else if (dayofRamadan == 12) {
+                    open("https://equran.me/read-11.html#juz12");
+                }else if (dayofRamadan == 13) {
+                    open("https://equran.me/read-12.html#juz13");
+                }else if (dayofRamadan == 14) {
+                    open("https://equran.me/read-15.html#juz14");
+                }else if (dayofRamadan == 15) {
+                    open("https://equran.me/read-17.html#juz15");
+                }else if (dayofRamadan == 16) {
+                    open("https://equran.me/read-18.html#juz16");
+                }else if (dayofRamadan == 17) {
+                    open("https://equran.me/read-21.html#juz17");
+                }else if (dayofRamadan == 18) {
+                    open("https://equran.me/read-23.html#juz18");
+                }else if (dayofRamadan == 19) {
+                    open("https://equran.me/read-25.html#juz19");
+                }else if (dayofRamadan == 20) {
+                    open("https://equran.me/read-27.html#juz20");
+                }else if (dayofRamadan == 21) {
+                    open("https://equran.me/read-29.html#juz21");
+                }else if (dayofRamadan == 22) {
+                    open("https://equran.me/read-33.html#juz22");
+                }else if (dayofRamadan == 23) {
+                    open("https://equran.me/read-36.html#juz23");
+                }else if (dayofRamadan == 24) {
+                    open("https://equran.me/read-39.html#juz24");
+                }else if (dayofRamadan == 25) {
+                    open("https://equran.me/read-41.html#juz25");
+                }else if (dayofRamadan == 26) {
+                    open("https://equran.me/read-46.html#juz26");
+                }else if (dayofRamadan == 27) {
+                    open("https://equran.me/read-51.html#juz27");
+                }else if (dayofRamadan == 28) {
+                    open("https://equran.me/read-58.html#juz28");
+                }else if (dayofRamadan == 29) {
+                    open("https://equran.me/read-67.html#juz29");
+                }else if (dayofRamadan == 30) {
+                    open("https://equran.me/read-78.html#juz30");
+                }
+                
+            }
+        }
+
+        
+    </script>
+<br>
+<br>
+<br>
+<br>
+    <div id="times">
+        <div id="fagr" class="textedit"></div>
+        <div id="shorook" class="textedit"></div>
+        <div id="dohr" class="textedit"></div>
+        <div id="asr" class="textedit"></div>
+        <div id="magrib" class="textedit"></div>
+        <div id="eisha" class="textedit"></div>
+        </div>
+    
+        <br>
+        <br>
+        <br>
+        <br>
+    
+
+    </body>
+</html>
